@@ -1,0 +1,88 @@
+{
+	"info": {
+		"_postman_id": "ef1f2edc-ec3a-4052-abab-c921e449ccfc",
+		"name": "Demo Auth Server",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8080/userinfo",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "redirect_uri",
+							"value": "http://127.0.0.1:8081/authorized",
+							"type": "string"
+						},
+						{
+							"key": "clientId",
+							"value": "messaging-client",
+							"type": "string"
+						},
+						{
+							"key": "scope",
+							"value": "openid email profile",
+							"type": "string"
+						},
+						{
+							"key": "client_authentication",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "useBrowser",
+							"value": false,
+							"type": "boolean"
+						},
+						{
+							"key": "accessTokenUrl",
+							"value": "http://localhost:8080/oauth2/token",
+							"type": "string"
+						},
+						{
+							"key": "authUrl",
+							"value": "http://localhost:8080/oauth2/authorize",
+							"type": "string"
+						},
+						{
+							"key": "grant_type",
+							"value": "authorization_code_with_pkce",
+							"type": "string"
+						},
+						{
+							"key": "code_verifier",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "clientSecret",
+							"value": "secret",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/userinfo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"userinfo"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
