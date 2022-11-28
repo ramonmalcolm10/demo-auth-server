@@ -1,10 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" layout:decorate="~{fragments/layout}">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <title>Login</title>
 </head>
 <body>
-$END$
+
+<div layout:fragment="content">
+
+    <form th:action="@{/login}" method="POST">
+        <p th:if="${param.error != null}" th:text="${session['SPRING_SECURITY_LAST_EXCEPTION'].message}"></p>
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+        <div>
+            <label for="username">Email address</label>
+                <input id="username" name="username" type="text" required>
+        </div>
+
+        <div>
+            <label for="password">Password</label>
+                <input
+                        id="password"
+                        name="password"
+                        type="password"
+                        autocomplete="current-password"
+                        required
+                >
+        </div>
+
+        <div>
+            <button type="submit">
+                Sign in
+            </button>
+        </div>
+    </form>
+</div>
 </body>
 </html>
